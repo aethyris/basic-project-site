@@ -4,76 +4,100 @@
         <title>Profile Page</title>
     </head>
     <body>
-        <nav>
-            <ul>
-               <li><a href="#">Profile</a></li> 
-               <li><a href="#">Project2</a></li>
-            </ul>
-        </nav>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#">Profile</a></li> 
+                    <li><a href="#">Project2</a></li>
+                </ul>
+            </nav>
+        </header>
 
-        <div id="menu">
-           <a href="#basic">Basic Information</a>
-            <a href="#education">Education</a>
-            <a href="#experience">Work Experience</a>
-            <a href="#skills">Programming Skills</a>
-            <a href="#interests">General Interests</a>
-            <a href="#favorite_media">Favorite Media</a>
-            <a href="#favorite_website">Favorite Website</a> 
-        </div>
+        <main>
+            <div id="menu">
+                <a href="#basic">Basic Information</a>
+                <a href="#education">Education</a>
+                <a href="#experience">Work Experience</a>
+                <a href="#skills">Programming Skills</a>
+                <a href="#interests">General Interests</a>
+                <a href="#favorite_media">Favorite Media</a>
+                <a href="#favorite_website">Favorite Website</a> 
+            </div>
 
-        <div>
-            <h1 id="basic">Calvin Kwong</h1>
-            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile Picture" width="15%">
-            <p>Major: Computer Science</p>
+            <div>
+                <h1 id="basic">Calvin Kwong</h1>
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile Picture" width="15%">
+                <p>Major: Computer Science</p>
+                
+                <section>
+                    <h2 id="education">Education</h2>
+                    <p>Currently attending St. John's University, working towards a bachelor's degree in Computer Science.</p>
+                </section>
+                
+                <section>
+                    <h2 id="experience">Work Experience/Internships</h2>
+                    <ul>
+                        <li>None</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2 id="skills">Programming Skills</h2>
+                    <ul>
+                       <li>Python - Intermediate</li>
+                       <li>Java - Intermediate</li>
+                       <li>Golang - Intermediate</li>
+                       <li>Javascript - Proficient</li>
+                       <li>HTML/CSS - Proficient</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2 id="interests">General Interests</h2>
+                    <p>
+                        <span><img src="img/astronomy.jpg" width ="20%" alt="Picture of nebula."></span>
+                        I am interested in technology, music, and astrophysics (although it's a bit beyond my comprehension).
+                    </p>
 
-            <h2 id="education">Education</h2>
-            <p>Currently attending St. John's University, working towards a bachelor's degree in Computer Science.</p>
+                    <section>
+                        <h3 id="favorite_media">Favorite song, film, and TV show</h3>
+                        <table>
+                            <tr>
+                                <th>Song</th>
+                                <th>Film</th>
+                                <th>Show</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/zQOxCwwwBNE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </td>
+                                <td>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/isOGD_7hNIY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </td>
+                                <td>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/caLji74IIp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
 
-            <h2 id="experience">Work Experience/Internships</h2>
-            <ul>
-                <li>None</li>
-            </ul>
+                    <section>
+                        <h3 id="favorite_website">Favorite Website</h3>
+                        <ul>
+                            <li><a href="https://arstechnica.com/" target="_blank">Ars Technica</a> is a news website that primarily covers topics related to technology and science.</li>
+                        </ul>
+                    </section>            
+                </section>      
+            </div>
 
-            <h2 id="skills">Programming Skills</h2>
-            <ul>
-                <li>Python - Intermediate</li>
-                <li>Java - Intermediate</li>
-                <li>Golang - Intermediate</li>
-                <li>Javascript - Proficient</li>
-                <li>HTML/CSS - Proficient</li>
-            </ul>
+            <form>
+                <p>Sign up to join a nonexistent mailing list!</p>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="name@example.com">
+                <input type="submit" name="submit" value="Submit">
+            </form>
 
-            <h2 id="interests">General Interests</h2>
-            <p>
-                <span><img src="img/astronomy.jpg" width ="20%" alt="Picture of nebula."></span>
-                I am interested in technology, music, and astrophysics (although it's a bit beyond my comprehension).
-            </p>
-
-            <h3 id="favorite_media">Favorite song, film, and TV show</h3>
-            <table>
-                <tr>
-                    <th>Song</th>
-                    <th>Film</th>
-                    <th>Show</th>
-                </tr>
-                <tr>
-                    <td>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/zQOxCwwwBNE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </td>
-                    <td>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/isOGD_7hNIY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </td>
-                    <td>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/caLji74IIp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </td>
-                </tr>
-            </table>
-            
-            <h3 id="favorite_website">Favorite Website</h3>
-            <ul>
-                <li><a href="https://arstechnica.com/" target="_blank">Ars Technica</a> is a news website that primarily covers topics related to technology and science.</li>
-            </ul>
-        </div>
+        </main>
 
     </body>
 </html>

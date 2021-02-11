@@ -1,102 +1,140 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Profile Page</title>
+
+        <link rel="stylesheet" href="css/design.css">
+        <link rel="stylesheet" href="css/mycss_web.css" media="(min-width: 769px)">
+        <link rel="stylesheet" href="css/mycss_tablet.css" media="(max-width: 768px)">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+
+        <script src="https://kit.fontawesome.com/d18b7a33a9.js" crossorigin="anonymous"></script>
+        <style>
+            #basic {
+                font-size: 2.5rem;
+                margin: 0px 0px 0px 0px;
+                text-align: center;
+                width:"100%";
+            }
+        </style>
+
     </head>
     <body>
         <header>
             <nav>
-                <ul>
-                    <li><a href="#">Profile</a></li> 
-                    <li><a href="#">Project2</a></li>
+                <ul class="navbar">
+                    <li><a class="nav-link" href="#">Profile</a></li> 
                 </ul>
             </nav>
         </header>
 
         <main>
-            <div id="menu">
-                <a href="#basic">Basic Information</a>
-                <a href="#education">Education</a>
-                <a href="#experience">Work Experience</a>
-                <a href="#skills">Programming Skills</a>
-                <a href="#interests">General Interests</a>
-                <a href="#favorite_media">Favorite Media</a>
-                <a href="#favorite_website">Favorite Website</a> 
-            </div>
-
-            <div>
+            <div id="profile">
                 <h1 id="basic">Calvin Kwong</h1>
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile Picture" width="15%">
-                <p>Major: Computer Science</p>
-                
-                <section>
-                    <h2 id="education">Education</h2>
-                    <p>Currently attending St. John's University, working towards a bachelor's degree in Computer Science.</p>
-                </section>
-                
-                <section>
-                    <h2 id="experience">Work Experience/Internships</h2>
-                    <ul>
-                        <li>None</li>
-                    </ul>
-                </section>
-                
-                <section>
-                    <h2 id="skills">Programming Skills</h2>
-                    <ul>
-                       <li>Python - Intermediate</li>
-                       <li>Java - Intermediate</li>
-                       <li>Golang - Intermediate</li>
-                       <li>Javascript - Proficient</li>
-                       <li>HTML/CSS - Proficient</li>
-                    </ul>
-                </section>
-                
-                <section>
-                    <h2 id="interests">General Interests</h2>
-                    <p>
-                        <span><img src="img/astronomy.jpg" width ="20%" alt="Picture of nebula."></span>
-                        I am interested in technology, music, and astrophysics (although it's a bit beyond my comprehension).
-                    </p>
 
+                <div id="shortcuts">
+                    <a href="#basic">Introduction</a><br>
+                    <a href="#education">Education</a><br>
+                    <a href="#experience">Experience</a><br>
+                    <a href="#skills">Skills</a><br>
+                    <a href="#interests">Interests</a><br>
+                    <a href="#favorite_media">Favorite Media</a><br>
+                    <a href="#favorite_website">Favorite Website</a>
+                </div>
+
+                <div id="information">
+                    <div id="introduction">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile Picture" width="144px" style="float: left; margin-right: 1em;">
+                        <p>Hi! I'm an aspiring software engineer and a senior at St. John's University.</p>
+                    </div>
+                    
                     <section>
-                        <h3 id="favorite_media">Favorite song, film, and TV show</h3>
-                        <table>
-                            <tr>
-                                <th>Song</th>
-                                <th>Film</th>
-                                <th>Show</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/zQOxCwwwBNE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </td>
-                                <td>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/isOGD_7hNIY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </td>
-                                <td>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/caLji74IIp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </td>
-                            </tr>
-                        </table>
+                        <h2 id="education">Education</h2>
+                        <p>Major: Computer Science</p>
+                        <p>
+                            I'm currently attending St. John's University where I will graduate in Spring 2021, working towards a bachelor's degree in Computer Science.
+                        </p>
                     </section>
-
+                
                     <section>
-                        <h3 id="favorite_website">Favorite Website</h3>
+                        <h2 id="experience">Work Experience/Internships</h2>
                         <ul>
-                            <li><a href="https://arstechnica.com/" target="_blank">Ars Technica</a> is a news website that primarily covers topics related to technology and science.</li>
+                            <li>None. However, you can see some of my work on <a href="https://github.com/aethyris" target="_blank"><i class="fab fa-github"></i> GitHub</a>.</li>
                         </ul>
-                    </section>            
-                </section>      
-            </div>
+                    </section>
+                
+                    <section>
+                        <h2 id="skills">Programming Skills</h2>
+                        <div style="overflow-x: auto;">
+                            <table>
+                                <tr>
+                                    <td><img src="images/profile/python.png" class="language-icons"> Python</td>
+                                    <td>Intermediate</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="images/profile/java.png" class="language-icons"> Java</td>
+                                    <td>Intermediate</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="images/profile/golang.png" class="language-icons"> Golang</td>
+                                    <td>Intermediate</td>
+                                </tr>
+                                <tr>
+                                    <td><img src="images/profile/javascript.png" class="language-icons"> Javascript</td>
+                                    <td>Proficient</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </section>
+                
+                    <section>
+                        <h2 id="interests">General Interests</h2>
+                        <div style="display: inline-flex; gap: .5rem;">
+                            <img src="images/profile/astronomy.jpg" width ="20%" alt="Picture of nebula.">
+                            <p>I am interested in technology, music, and astrophysics <span>(although it's a bit beyond my comprehension)</span>.</p>
+                        </div>
+                    
+                        <section>
+                            <h3 id="favorite_media">Favorite song, film, and TV show</h3>
+                            <p>Song</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/zQOxCwwwBNE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p>Movie</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/isOGD_7hNIY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p>Show</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/caLji74IIp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </section>
 
-            <form>
-                <p>Sign up to join a nonexistent mailing list!</p>
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" placeholder="name@example.com">
-                <input type="submit" name="submit" value="Submit">
-            </form>
+                        <section>
+                            <h3 id="favorite_website">Favorite Website</h3>
+                            <ul>
+                                <li><a href="https://arstechnica.com/" target="_blank">Ars Technica</a> is a news website that primarily covers topics related to technology and science.</li>
+                                <li><a href="https://twitter.com/" target="_blank">Twitter</a> is a social networking site that allows users to post and interact using tweets.</li>
+                            </ul>
+                        </section>            
+                    </section>      
+                </div>
 
+                <div id="contact-me">
+                    <h2>Contact Me</h2>
+                    <form class="contact-form">
+                        <label for="contact_name">Name</label>
+                        <input type="text" id="contact_name" name="name" required>
+                        <br>
+
+                        <label for="contact_email">Email</label>
+                        <input type="email" id="contact_email" name="email" required>
+                        <br>
+
+                        <label for="contact_msg">Message</label>
+                        <textarea id="contact_msg" name="message"></textarea>
+                        <br>
+                        <button class="button-gradient" type="submit">Send</button>
+                    </form>
+                </div>
+            </div>  
         </main>
 
     </body>

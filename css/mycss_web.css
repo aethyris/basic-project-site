@@ -1,0 +1,32 @@
+nav {
+    grid-area: header;
+    padding: .5rem 3rem;
+}
+
+#profile {
+    display: grid;
+    grid-template-columns: 25% 1fr minmax(10%, 25%);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "name name name"
+        "shortcuts information ."
+        "test contact .";
+    grid-column-gap: 1em;
+}
+
+#basic {
+    grid-area: name;
+}
+
+#information {
+    grid-area: information;
+}
+
+#shortcuts {
+    grid-area: shortcuts;
+    justify-self: right;
+}
+
+#contact-me {
+    grid-area: contact;
+}

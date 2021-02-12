@@ -1,32 +1,14 @@
-nav {
-    grid-area: header;
-    padding: .5rem 3rem;
+.container {
+    width: 60%;
+    margin: 0 auto;
 }
 
-#profile {
-    display: grid;
-    grid-template-columns: 25% 1fr minmax(10%, 25%);
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-        "name name name"
-        "shortcuts information ."
-        "test contact .";
-    grid-column-gap: 1em;
+#profile-menu {
+    float: right;
+    max-width: 25%;
+    margin-left: .5rem;
 }
 
-#basic {
-    grid-area: name;
-}
-
-#information {
-    grid-area: information;
-}
-
-#shortcuts {
-    grid-area: shortcuts;
-    justify-self: right;
-}
-
-#contact-me {
-    grid-area: contact;
+#profile-information {
+    max-width: 75%;
 }

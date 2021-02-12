@@ -1,6 +1,16 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#profile-menu {
+  margin-bottom: .5rem;
+}
+
+#profile-information {
+  max-width: 75%;
+}
+
 #shortcuts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: .5rem;
+  float: right;
 }

@@ -52,13 +52,13 @@ a:hover {
     color: #6fa9f5;
 }
 
-.navbar a, .custom-footer a, .logo a {
+.navbar a, .custom-footer a, .logo a, .custom-navbar a {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
 }
 
-.navbar a:hover, .custom-footer a:hover {
+.navbar a:hover, .custom-footer a:hover, .custom-navbar a:hover {
     color: var(--light-purple);
 }
 
@@ -120,22 +120,21 @@ div {
     border-top: 4px solid var(--light-purple);
     float: left;
     font-size: 3rem;
-    padding-top: .5rem;
+    padding-top: .6rem;
     text-transform: uppercase;
 }
 
-
-.navbar {
+.custom-navbar {
     padding-top: 2rem;
     text-align: right;
 }
 
-.navbar li, .custom-footer li {
+.custom-navbar li, .custom-footer li {
     display: inline-block;
     margin: 0 .75rem;
 }
 
-.navbar li:last-child, .custom-footer li:last-child {
+.custom-navbar li:last-child, .custom-footer li:last-child {
     margin-right: 0rem;
 }
 
@@ -150,13 +149,11 @@ img {
 
 .gradient-row {
     background: linear-gradient(90deg, var(--light-purple), var(--light-blue));
-    padding: 2rem 0rem 2rem 0rem;
 }
 
 .gradient-content {
     color: white;
     text-align: center;
-    font-weight: bold;
 }
 
 .page-content {

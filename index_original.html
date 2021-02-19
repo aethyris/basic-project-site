@@ -5,15 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Profile Page</title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="css/design.css">
         <link rel="stylesheet" href="css/mycss_web.css" media="(min-width: 769px)">
         <link rel="stylesheet" href="css/mycss_tablet.css" media="(max-width: 768px)">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/d18b7a33a9.js" crossorigin="anonymous"></script>
 
+        <script src="https://kit.fontawesome.com/d18b7a33a9.js" crossorigin="anonymous"></script>
         <style>
             #general-interests {
                 display: flex;
@@ -30,31 +29,29 @@
 
     </head>
     <body>
-        <header class="container">
-            <nav class="navbar navbar-expand-md p-0">
-                <a class="navbar-brand logo text-white" href="indexbs4.html">CK</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars pt-3" style="color: white; font-size: 1.5rem;"></i>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarContent">
-                    <ul class="navbar-nav ml-auto pt-4">
-                        <li class="nav-item"><a class="nav-link" href="indexbs4.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-                    </ul>
-                </div>
+        <header class="custom-container">
+            <div class="logo">
+                <a href="index.html">CK</a>
+            </div>
+            <nav class="custom-navbar">
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Link2</a></li>
+                </ul>
             </nav>
         </header>
 
-        <main class="bg-white">
-            <section class="jumbotron jumbotron-fluid gradient-row m-0" id="introduction">
-                <h1 class="display-4 text-white text-center">Calvin Kwong</h1><br>
-                <p class="lead text-white text-center">Hi! I'm an aspiring software engineer and a senior at St. John's University.</p>
-            </section>
+        <main>
+            <div class="gradient-row" style="padding: 2rem 0rem 2rem 0rem;">
+                <div class="custom-container" id="introduction">
+                    <h1 class="gradient-content">Calvin Kwong</h1>
+                    <p class="gradient-content">Hi! I'm an aspiring software engineer and a senior at St. John's University.</p>
+                </div>
+            </div>
 
-            <div class="container mt-2">
-                <div class="row">
-                    <div class="col-sm order-md-12 mx-auto">
+            <div class="page-content">
+                <div class="custom-container">
+                    <div id="profile-menu">
                         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" id="profile-picture" alt="Profile Picture" width="144px">
                         <div id="shortcuts">
                             <a href="#introduction">Introduction</a><br>
@@ -68,7 +65,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-9 order-md-1">
+                    <div>
                         <section id="education">
                             <h2>Education</h2>
                             <h6>Major: Computer Science</h6>
@@ -155,8 +152,8 @@
         </main>
 
         <footer>
-            <div class="gradient-row p-1"></div>
-            <div class="container custom-footer pt-3">
+            <div class="gradient-row" style="padding: .5em;"></div>
+            <div class="custom-container custom-footer">
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Profile</a></li>
@@ -165,11 +162,6 @@
 
         </footer>
         
-
-        <!-- jQuery, Popper.js, Bootstrap JS plugins-->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     </body>
 </html>

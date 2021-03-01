@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('#red').onclick = function() {
+                    document.querySelector('#style_me').style.color = 'red';
+                }
+                document.querySelector('#green').onclick = function() {
+                    document.querySelector('#style_me').style.color = 'green';
+                }
+                document.querySelector('#blue').onclick = function() {
+                    document.querySelector('#style_me').style.color = 'blue';
+                }
+
+                document.querySelector('#left').onclick = function() {
+                    document.querySelector('#style_me').style.cssFloat = 'left';
+                }
+                document.querySelector('#right').onclick = function() {
+                    document.querySelector('#style_me').style.cssFloat = 'right';
+                }
+            })
+        </script>
+        <title>Updating CSS Properties</title>
+    </head>
+    <body>
+        <h1 id="style_me">Style Me</h1>
+        <div>
+            <div>
+                <h2>Colors</h2>
+                <button id="red">Red</button>
+                <button id="green">Green</button>
+                <button id="blue">Blue</button>
+            </div>
+            <div>
+                <h2>Alignment</h2>
+                <button id="left">Left</button>
+                <button id="right">Right</button>
+            </div>
+        </div>
+    </body>
+</html>

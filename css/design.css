@@ -8,12 +8,12 @@
 
 * {
     font-family: 'Titillium Web', sans-serif;
-    color: var(--sorta-black);
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bolder;
     margin: .5rem 0rem .5rem 0rem;
+    color: var(--sorta-black)
 }
 
 h1, h2, h3, h4 {
@@ -52,6 +52,10 @@ a:hover {
     color: #6fa9f5;
 }
 
+p {
+    color: var(--sorta-black);
+}
+
 .navbar a, .custom-footer a, .logo a, .custom-navbar a {
     color: white;
     text-decoration: none;
@@ -63,12 +67,12 @@ a:hover {
 }
 
 span {
-    font-size: .8rem;
+    font-size: 1rem;
 }
 
 /* Buttons */
 
-.button-gradient {
+.button-gradient{
     font-weight: bolder;
     text-transform: uppercase;
     padding: 8px 24px;
@@ -93,7 +97,6 @@ span {
 
 @keyframes button-gradient-anim {
     0% {
-        box-shadow: 2px 1000px 1px white inset;
         color: var(--sorta-black);
     }
     100% {
@@ -102,9 +105,27 @@ span {
     }
 }
 
+.fa-trash-alt {
+    color: red;
+}
+
+.fa-check {
+    color: green;
+}
+
+.remove, .complete, .pending {
+    background: white;
+    box-shadow: 0;
+    border: 0;
+}
+
+button > i {
+    pointer-events: none;
+}
+
 /* Body */
 body {
-    background: var(--sorta-black);
+    background: white;
     padding: 0px;
     margin: 0px;
 }
@@ -113,6 +134,7 @@ div {
     padding: 0px;
     margin: 0px;
 }
+
 
 /* Header/Footer */
 
@@ -143,6 +165,10 @@ div {
 }
 
 /* Content */
+.sorta-black {
+    background-color: var(--sorta-black);
+}
+
 img {
     border: 1px solid var(--sorta-black);
 }
@@ -200,7 +226,7 @@ form {
     padding-bottom: 1rem;
 }
 
-input, textarea {
+#contact-email, #contact-name, textarea {
     border: 1px solid var(--sorta-black);
     display: block;
     border-radius: 5px;

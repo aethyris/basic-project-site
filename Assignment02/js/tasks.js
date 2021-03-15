@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         taskList.push(task);
 
-        let element = document.createElement('div');
+        let element = document.createElement('li');
         let taskHTML;
         if (status == 'pending') {
             taskHTML = `

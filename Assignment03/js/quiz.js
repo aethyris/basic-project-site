@@ -19,7 +19,7 @@ const selectQuizView = async () => {
     if (studentName == '') {
         alert('Please enter a valid name.')
     } else {
-        const data = await fetch(`${source}/quiz1`);
+        const data = await fetch(`${source}/quizzes`);
         const dataJSON = await data.json();
         console.log(dataJSON);
         const model = {
@@ -30,7 +30,7 @@ const selectQuizView = async () => {
 }
 
 const createQuestionView = async (questionId) => {
-    const data = await fetch(`${source}${quizSelector}/?id=${questionId}`);
+    const data = await fetch(`${source}/${quizSelector}/?id=${questionId}`);
     const model = await data.json();
     switch(model[0].type) {
         case 'multiple-choice':

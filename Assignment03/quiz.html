@@ -13,7 +13,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/d18b7a33a9.js" crossorigin="anonymous"></script>
-
     </head>
     <body class="min-vh-100 container-fluid d-flex flex-column">
         <!-- Navbar -->
@@ -28,7 +27,7 @@
                     <ul class="navbar-nav ml-auto pt-4">
                         <li class="nav-item"><a class="nav-link" href="../index.html">Profile</a></li>
                         <li class="nav-item"><a class="nav-link" href="../Assignment02/tasks.html">Task List</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Quiz App</a></li>
+                        <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz App</a></li>
                     </ul>
                 </div>
             </nav>
@@ -51,29 +50,53 @@
                 <ul>
                     <li><a href="../index.html">Profile</a></li>
                     <li><a href="../Assignment02/tasks.html">Task List</a></li>
-                    <li><a href="#">Quiz App</a></li>
+                    <li><a href="quiz.html">Quiz App</a></li>
                 </ul>
             </div>
         </footer>
 
-        <script id="quiz-selection" type="text/x-handlebars-template">
-            <h2 class="text-center display-5 mb-4">Quiz Selection</h2>
-            <form>
+        <script id="provide-name" type="text/x-handlebars-template">
+            <form id='name-form'>
                 <div class='form-group col-md-5 mx-auto text-center'>
-                    <label for='name'>Please enter your name:</label>
-                    <input type='text' id='name' name='name' class='form-control text-center' required>
-                </div>
-                <div class='form-group col-md-5 mx-auto text-center'>
-                    <label for="quiz" class="text-center">Select quiz:</label>
-                    <select id="quiz" class="form-control">
-                        <option value="q1">q1</option>
-                        <option value="q2">q2</option>
-                    </select>
+                    <label for='student-name' class="lead">Welcome! Please enter your name: </label>
+                    <input type='text' id='student-name' name='student-name' class='form-control text-center' required>
                 </div>
                 <div class='row justify-content-center'>
-                    <button class="button-gradient" type="submit">Start</button>
-                </div>       
+                    <button class="button-gradient" type="button" onclick="selectQuizView()">Submit</button>
+                </div>
             </form>
+        </script>
+
+        <script id="select-quiz" type="text/x-handlebars-template">
+            <div class="col-md-8 mx-auto">
+                <p class="h2">Welcome {{name}}!</p>
+                <hr />
+                <p class="lead">These are the quizzes available for you to take:</p>
+            </div>
+        </script>
+
+        <script id="multiple-choice" type="text/x-handlebars-template">
+            <div class="col-md-8 mx-auto">
+                <p>Question {{id}}/20</p>
+                <hr />
+
+                <p class="h5">{{question}}</p>
+                {{#if content}}
+                <img src='{{content}}' alt=''/>
+                {{/if}}
+
+                <form id='multiple-choice-form' class='mt-3'>
+                    <div class='form-group'>
+                        {{#each answers}}
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="answer" id='{{this.id}}' value='{{this.id}}'>
+                            <label class="form-check-label" for='{{this.id}}'>{{this.option}}</label>
+                        </div>  
+                        {{/each}}
+                    </div>
+                    <button class="button-gradient" type="submit">Submit</button>
+                </form>
+            </div>
         </script>
 
         <!-- jQuery, Popper.js, Bootstrap JS plugins-->

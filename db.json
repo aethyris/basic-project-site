@@ -1,7 +1,8 @@
 {
     "quizzes": [
         {
-            "quiz1": [
+            "name": "quiz1",
+            "questions": [
                 {
                     "id": 1,
                     "type": "multiple-choice",
@@ -80,7 +81,8 @@
             ]
         },
         {
-            "quiz2": []
+            "name": "quiz2"
+            "questions": []
         }
     ]
 }

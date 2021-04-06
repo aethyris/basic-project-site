@@ -11,81 +11,105 @@
 			"description": "A quiz to test your understanding of Python concepts."
 		}
 	],
-    "quiz1": [
-        {
-            "id": 1,
-            "type": "multiple-choice",
-            "question": "Multiple choice question",
-            "content": "",
-            "answers" : [
-                {
-                    "id": 1,
-                    "option": "answer1"
-                },
-                {
-                    "id": 2,
-                    "option": "answer2"
-                },
-                {
-                    "id": 3,
-                    "option": "answer3"
-                },
-                {
-                    "id": 4,
-                    "option": "answer4"
-                }
-            ],
-               "answer": 1
-        },
-        {
-            "id": 2,
-            "type": "solve",
-            "question": "Solve question, or use for finding output",
-            "content": "",
-            "before-answer": "",
-            "after-answer": "",
-            "answer": "answer"
-        },
-        {
-            "id": 3,
-            "type": "fill-in",
-            "question": [
-                "Fill in the ",
-                " in this sentence."
-            ],
-            "answer": "blank"
-        },
-        {
-            "id": 4,
-            "type": "image-select",
-            "question": "which one of these images looks right",
-            "content": "",
-            "answers" : [
-                {
-                    "id": 1,
-                    "image": "answer1"
-                },
-                {
-                    "id": 2,
-                    "image": "answer2"
-                },
-                {
-                    "id": 3,
-                    "image": "answer3"
-                },
-                {
-                    "id": 4,
-                    "image": "answer4"
-                }
-            ],
-            "answer": 1
-        },
-        {
-            "id": 5,
-            "type": "correct-error",
-            "question": "identify the error",
-            "input": "prefill the textbox",
-            "answer": "pre-fill the textbox"
-        }
-    ]
+    "quiz1": {
+        "questions": [
+            {
+                "id": 1,
+                "type": "multiple-choice",
+                "question": "Multiple choice question",
+                "content": "",
+                "answers" : [
+                    {
+                        "id": 1,
+                        "option": "answer1"
+                    },
+                    {
+                        "id": 2,
+                        "option": "answer2"
+                    },
+                    {
+                        "id": 3,
+                        "option": "answer3"
+                    },
+                    {
+                        "id": 4,
+                        "option": "answer4"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "type": "solve",
+                "question": "Solve question, or use for finding output",
+                "content": "",
+                "before-answer": "",
+                "after-answer": ""
+            },
+            {
+                "id": 3,
+                "type": "fill-in",
+                "question": [
+                    "Fill in the ",
+                    " in this sentence."
+                ]
+            },
+            {
+                "id": 4,
+                "type": "image-select",
+                "question": "which one of these images looks right",
+                "content": "",
+                "answers" : [
+                    {
+                        "id": 1,
+                        "image": "answer1"
+                    },
+                    {
+                        "id": 2,
+                        "image": "answer2"
+                    },
+                    {
+                        "id": 3,
+                        "image": "answer3"
+                    },
+                    {
+                        "id": 4,
+                        "image": "answer4"
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "type": "correct-error",
+                "question": "identify the error",
+                "input": "prefill the textbox"
+            }
+        ],
+        "answers": [
+            {
+                "id": 1,
+                "type": "multiple-choice",
+                "answer": 1
+            },
+            {
+                "id": 2,
+                "type": "solve",
+                "answer": "answer"
+            },
+            {
+                "id": 3,
+                "type": "fill-in",
+                "answer": "blank"
+            },
+            {
+                "id": 4,
+                "type": "image-select",
+                "answer": 1
+            },
+            {
+                "id": 5,
+                "type": "correct-error",
+                "answer": "pre-fill the texbox"
+            }
+        ]        
+    }
 }

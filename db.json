@@ -1,16 +1,16 @@
 {
     "quizzes": [
         {
-            'name': 'quiz1',
-            'image': 'http://codehustler.org/wp-content/uploads/2012/12/java_logo.png',
-            'description': 'A quiz to test your understanding of Java concepts.'
-        },
-        {
-            'name': 'quiz2',
-            'image': 'https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/267_Python_logo-512.png',
-            'description': 'A quiz to test your understanding of Python concepts.'
-        }
-    ],
+			"name": "quiz1",
+			"image": "http://codehustler.org/wp-content/uploads/2012/12/java_logo.png",
+			"description": "A quiz to test your understanding of Java concepts."
+		},
+		{
+			"name": "quiz2",
+			"image": "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/267_Python_logo-512.png",
+			"description": "A quiz to test your understanding of Python concepts."
+		}
+	],
     "quiz1": [
         {
             "id": 1,

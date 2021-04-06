@@ -57,7 +57,7 @@
 
         <script id="provide-name" type="text/x-handlebars-template">
             <form id='name-form'>
-                <div class='form-group col-md-5 mx-auto text-center'>
+                <div class='form-group col-sm-8 col-lg-5 mx-auto text-center'>
                     <label for='student-name' class="lead">Welcome! Please enter your name: </label>
                     <input type='text' id='student-name' name='student-name' class='form-control text-center' required>
                 </div>
@@ -68,10 +68,28 @@
         </script>
 
         <script id="select-quiz" type="text/x-handlebars-template">
-            <div class="col-md-8 mx-auto">
+            <div class="col-lg-10 mx-auto">
                 <p class="h2">Welcome {{name}}!</p>
                 <hr />
                 <p class="lead">These are the quizzes available for you to take:</p>
+
+                <div class="container-fluid">
+                    <div class="row justify-content center">
+                        {{#each quizzes}}
+                        <div class="col-auto mb-3">
+                            <div class="card h-100" style="width: 18rem;">
+                                <img src="{{this.image}}" class="card-img-top" style="border: none;" alt="{{this.name}}">
+                                <div class="card-body">
+                                    <h5 class="card-title" id="">{{this.name}}</h5>
+                                    <p class="card-text">{{this.description}}</p>
+                                    <button class="button-gradient" type="button" onclick="startQuizView('{{this.name}}')">Start</button>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                
             </div>
         </script>
 
@@ -94,10 +112,39 @@
                         </div>  
                         {{/each}}
                     </div>
-                    <button class="button-gradient" type="submit">Submit</button>
+                    <button class="button-gradient" type="button" onclick="submitAnswer('{{id}}')">Submit</button>
                 </form>
+
+                <div id="question-result">
+                </div>
+
             </div>
         </script>
+
+        <script id="solve" type="text/x-handlebars-template">
+            <div class="col-md-8 mx-auto">
+                <p>Question {{id}}/20</p>
+                <hr />
+
+                <p class="h5">{{question}}</p>
+                {{#if content}}
+                <img src="{{content}}" alt=''/>
+                {{/if}}
+
+                <form id='solve-form' class='mt-3'>
+                    <p>{{before-answer}}</p>
+                    <input id="answer" name="answer" class="form-control">
+                    <p>{{after-answer}}</p>
+                </form>
+                <button class="button-gradient" type="button" onclick="submitAnswer('{{id}}')">Submit</button>
+            </div>
+
+            <div id="question-result">
+            </div>
+
+        </script>
+
+        
 
         <!-- jQuery, Popper.js, Bootstrap JS plugins-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

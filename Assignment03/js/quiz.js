@@ -1,10 +1,10 @@
 const source = 'https://my-json-server.typicode.com/aethyris/cus1172-project1/';
 let studentName = '';
-let quizSelector = 'quiz1';
+let quizSelector = '';
+let correctQuestions = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     renderView('#provide-name');
-    // createQuestionView(1);
 })
 
 const renderView = (view, model) => {
@@ -21,9 +21,9 @@ const selectQuizView = async () => {
     } else {
         const data = await fetch(`${source}/quizzes`);
         const dataJSON = await data.json();
-        console.log(dataJSON);
         const model = {
             'name': studentName,
+            'quizzes': dataJSON,
         };
         renderView('#select-quiz', model);
     }
@@ -35,6 +35,27 @@ const createQuestionView = async (questionId) => {
     switch(model[0].type) {
         case 'multiple-choice':
             renderView('#multiple-choice', model[0]);
+            break;
+    }
+}
+
+const startQuizView = (quiz) => {
+    quizSelector = quiz;
+    createQuestionView(1);
+}
+
+const submitAnswer = async (questionId) => {
+    const data = await fetch(`${source}/${quizSelector}/?id=${questionId}`);
+    const model = await data.json();
+    switch(model[0].type) {
+        case 'multiple-choice':
+            const correctAnswer = model[0].answer;
+            const givenAnswer = document.querySelector('input[name=answer]:checked').value
+            if (!givenAnswer) {
+                alert('Please select an answer to the question.');
+            } else {
+                console.log(correctAnswer == givenAnswer);
+            }
             break;
     }
 }

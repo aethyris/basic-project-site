@@ -64,7 +64,7 @@ const submitAnswer = async (questionId) => {
         } else if (model.answer == givenAnswer) {
             const congratsList = [
                 'Brilliant!',
-                'Awesome',
+                'Awesome!',
                 'Good work!'
             ]
             renderView('#correct-answer', {

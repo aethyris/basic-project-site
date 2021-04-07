@@ -94,7 +94,7 @@
         </script>
 
         <script id="multiple-choice" type="text/x-handlebars-template">
-            <div class="col-md-10 mx-auto">
+            <div class="col-md-8 mx-auto">
                 <div class="d-flex justify-content-between align-items-end">
                         <h3>{{quiz-name}}</h3>
                         <p class="mb-2 text-muted">Question {{question-number}}/{{quiz-length}}</p>
@@ -156,18 +156,24 @@
         </script>
 
         <script id="correct-answer" type="text/x-handlebars-template">
-            <div class="card bg-success">
-                <div class="card-body">
-                    <h3 class="text-white text-center">{{success-message}}</h5>
+            <div class="d-flex justify-content-center">
+                <div class="col-md-8 card bg-success">
+                    <div class="card-body">
+                        <h3 class="text-white text-center">{{success-message}}</h5>
+                    </div>
                 </div>
-            </div>
+            </div>   
         </script>
 
         <script id="incorrect-answer" type="text/x-handlebars-template">
-            <div class="card border-danger">
-                <div class="card-header bg-danger">Incorrect</div>
-                <div class="card-body">
-                    <p>{{explanation}}</p>
+            <div class='d-flex justify-content-center'>
+                <div class="col-md-8 card border-danger">
+                    <div class="card-header bg-danger">
+                        <h3 class="text-white text-center">Incorrect</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>{{explanation}}</p>
+                    </div>
                 </div>
             </div>
         </script>

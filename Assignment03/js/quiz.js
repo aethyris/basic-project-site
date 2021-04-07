@@ -50,18 +50,44 @@ const createQuestionView = async (questionId) => {
         case 'multiple-choice':
             renderView('#multiple-choice', model);
             break;
+        case 'solve':
+            renderView('#solve', model);
+            break;
+        case 'fill-in':
+            renderView('#fill-in', model);
+            break;
+        case 'image-select':
+            renderView('#image-select', model);
+            break;
+        case 'correct-error':
+            renderView('#correct-error', model);
+            break;
     }
 }
 
 const submitAnswer = async (questionId) => {
     const data = await fetch(`${source}/answers?question-id=${questionId}`)
     const dataJSON = await data.json();
-    const model = dataJSON[0]
+    const model = dataJSON[0];
+    let givenAnswer = '';
     if (model['answer-type'] == "radio") {
-        const givenAnswer = document.querySelector('input[name=answer]:checked').value
-        if (!givenAnswer) {
-            alert('Please select an answer to the question.');
-        } else if (model.answer == givenAnswer) {
+        givenAnswer = document.querySelector('input[name=answer]:checked').value
+    } else if (model['answer-type'] == 'text') {
+        givenAnswer = document.querySelector('#answer').value.trim();
+    }
+
+    if (!givenAnswer) {
+        alert('Please answer the question.');
+    } else {
+        const question = await fetch(`${source}/questions?id=${questionId}`)
+        const questionJSON = await question.json();
+        const quiz = await fetch(`${source}/quizzes?id=${questionJSON[0]['quiz-id']}`);
+        const quizJSON = await quiz.json();
+        const questionList = quizJSON[0].questions;
+        model['next-question'] = questionList[questionList.findIndex(element => element == questionId) + 1];
+
+        if (model.answer == givenAnswer) {
+            correctAnswers++;
             const congratsList = [
                 'Brilliant!',
                 'Awesome!',

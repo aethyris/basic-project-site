@@ -68,7 +68,7 @@
         </script>
 
         <script id="select-quiz" type="text/x-handlebars-template">
-            <div class="col-lg-10 mx-auto">
+            <div class="mx-auto">
                 <p class="h2">Welcome {{name}}!</p>
                 <hr />
                 <p class="lead">These are the quizzes available for you to take:</p>
@@ -82,7 +82,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title" id="">{{this.name}}</h5>
                                     <p class="card-text">{{this.description}}</p>
-                                    <button class="button-gradient" type="button" onclick="startQuizView('{{this.name}}')">Start</button>
+                                    <button class="button-gradient" type="button" onclick="createQuestionView('{{this.questions.[0]}}',)">Start</button>
                                 </div>
                             </div>
                         </div>
@@ -94,21 +94,26 @@
         </script>
 
         <script id="multiple-choice" type="text/x-handlebars-template">
-            <div class="col-md-8 mx-auto">
-                <p>Question {{id}}/20</p>
-                <hr />
+            <div class="col-md-10 mx-auto">
+                <div class="d-flex justify-content-between align-items-end">
+                        <h3>{{quiz-name}}</h3>
+                        <p class="mb-2 text-muted">Question {{question-number}}/{{quiz-length}}</p>
+                </div>
+                <div class="progress" style="height: .5em;">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{quiz-progress}}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
 
-                <p class="h5">{{question}}</p>
-                {{#if content}}
-                <img src='{{content}}' alt=''/>
+                <p class="h5 mt-2">{{question}}</p>
+                {{#if img-content}}
+                <img src='{{img-content}}' alt=''/>
                 {{/if}}
 
-                <form id='multiple-choice-form' class='mt-3'>
+                <form id='radio-form' class='mt-3'>
                     <div class='form-group'>
-                        {{#each answers}}
+                        {{#each choices}}
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="radio" name="answer" id='{{this.id}}' value='{{this.id}}'>
-                            <label class="form-check-label" for='{{this.id}}'>{{this.option}}</label>
+                            <label class="form-check-label" for='{{this.id}}'>{{this.text}}</label>
                         </div>  
                         {{/each}}
                     </div>
@@ -121,14 +126,19 @@
             </div>
         </script>
 
-        <script id="solve" type="text/x-handlebars-template">
+        <script id="text-form" type="text/x-handlebars-template">
             <div class="col-md-8 mx-auto">
-                <p>Question {{id}}/20</p>
-                <hr />
+                <div class="d-flex justify-content-between align-items-end">
+                    <h3>{{quiz-name}}</h3>
+                    <p class="mb-2 text-muted">Question {{question-number}}/{{quiz-length}}</p>
+                </div>
+                <div class="progress" style="height: .5em;">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{quiz-progress}}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
 
-                <p class="h5">{{question}}</p>
-                {{#if content}}
-                <img src="{{content}}" alt=''/>
+                <p class="h5 mt-2">{{question}}</p>
+                {{#if img-content}}
+                <img src='{{img-content}}' alt=''/>
                 {{/if}}
 
                 <form id='solve-form' class='mt-3'>
@@ -137,13 +147,30 @@
                     <p>{{after-answer}}</p>
                 </form>
                 <button class="button-gradient" type="button" onclick="submitAnswer('{{id}}')">Submit</button>
-            </div>
 
-            <div id="question-result">
+                <div id="question-result">
+                </div>
+
             </div>
 
         </script>
 
+        <script id="correct-answer" type="text/x-handlebars-template">
+            <div class="card bg-success">
+                <div class="card-body">
+                    <h3 class="text-white text-center">{{success-message}}</h5>
+                </div>
+            </div>
+        </script>
+
+        <script id="incorrect-answer" type="text/x-handlebars-template">
+            <div class="card border-danger">
+                <div class="card-header bg-danger">Incorrect</div>
+                <div class="card-body">
+                    <p>{{explanation}}</p>
+                </div>
+            </div>
+        </script>
         
 
         <!-- jQuery, Popper.js, Bootstrap JS plugins-->

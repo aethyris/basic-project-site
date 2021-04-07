@@ -1,7 +1,6 @@
 const source = 'https://my-json-server.typicode.com/aethyris/cus1172-project1/';
 let studentName = '';
-let quizSelector = '';
-let correctQuestions = 0;
+let correctAnswers = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     renderView('#provide-name');
@@ -30,32 +29,49 @@ const selectQuizView = async () => {
 }
 
 const createQuestionView = async (questionId) => {
-    const data = await fetch(`${source}/${quizSelector}/?id=${questionId}`);
-    const model = await data.json();
-    switch(model[0].type) {
+    // Get question
+    const questionData = await fetch(`${source}/questions?id=${questionId}`);
+    const questionJSON = await questionData.json();
+    const model = questionJSON[0]
+
+    // Get quiz data for more information
+    const quizId = model['quiz-id']
+    const quizData = await fetch(`${source}/quizzes?quiz-id=${quizId}`);
+    const quizJSON = await quizData.json();
+    const questionList = quizJSON[0].questions;
+    const questionIndex = questionList.findIndex(element => element == questionId);
+
+    model['question-number'] = questionIndex + 1
+    model['quiz-length'] = questionList.length
+    model['quiz-progress'] = Math.round((questionIndex/questionList.length)*100)
+    model['quiz-name'] = quizJSON[0].name
+
+    switch(model["question-type"]) {
         case 'multiple-choice':
-            renderView('#multiple-choice', model[0]);
+            renderView('#multiple-choice', model);
             break;
     }
 }
 
-const startQuizView = (quiz) => {
-    quizSelector = quiz;
-    createQuestionView(1);
-}
-
 const submitAnswer = async (questionId) => {
-    const data = await fetch(`${source}/${quizSelector}/?id=${questionId}`);
-    const model = await data.json();
-    switch(model[0].type) {
-        case 'multiple-choice':
-            const correctAnswer = model[0].answer;
-            const givenAnswer = document.querySelector('input[name=answer]:checked').value
-            if (!givenAnswer) {
-                alert('Please select an answer to the question.');
-            } else {
-                console.log(correctAnswer == givenAnswer);
-            }
-            break;
+    const data = await fetch(`${source}/answers?question-id=${questionId}`)
+    const dataJSON = await data.json();
+    const model = dataJSON[0]
+    if (model['answer-type'] == "radio") {
+        const givenAnswer = document.querySelector('input[name=answer]:checked').value
+        if (!givenAnswer) {
+            alert('Please select an answer to the question.');
+        } else if (model.answer == givenAnswer) {
+            const congratsList = [
+                'Brilliant!',
+                'Awesome',
+                'Good work!'
+            ]
+            renderView('#correct-answer', {
+                "success-message": congratsList[Math.floor(Math.random() * congratsList.length)] 
+            });
+        } else {
+            renderView('#incorrect-answer', model);
+        }
     }
 }

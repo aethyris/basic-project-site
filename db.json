@@ -96,31 +96,36 @@
             "id": 1,
             "question-id": 1,
             "answer-type": "radio",
-            "answer": 1
+            "answer": 1,
+            "explanation": "The reason why the answer is 1 is because it is 1."
         },
         {
             "id": 2,
             "question-id": 2,
             "answer-type": "text",
-            "answer": "answer"
+            "answer": "answer",
+            "explanation": "The reason why the answer is answer is because it is answer."
         },
         {
             "id": 3,
             "question-id": 3,
             "answer-type": "text",
-            "answer": "blank"
+            "answer": "blank",
+            "explanation": "The reason why the answer is blank is because it is blank."
         },
         {
             "id": 4,
             "question-id": 4,
             "answer-type": "radio",
-            "answer": 1
+            "answer": 1,
+            "explanation": "The reason why the answer is 1 is because it is 1."
         },
         {
             "id": 5,
             "question-id": 5,
             "answer-type": "text",
-            "answer": "pre-fill the textbox"
+            "answer": "pre-fill the textbox",
+            "explanation": "The reason why the answer is answer is pre-fill the textbox because it is pre-fill the textbox."
         }
     ]
 }

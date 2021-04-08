@@ -237,7 +237,7 @@
                         <div class="card-body">
                             <p>{{explanation}}</p>
                             <div class='row justify-content-center'>
-                                <button class="btn btn-danger" type="button" onclick="createQuestionView('{{next-question}}')">Got it</button>
+                                <button class="btn btn-danger" type="button" onclick="createQuestionView('{{next-question}}', '{{quiz-id}}')">Got it</button>
                             </div>
                         </div>
                     </div>
@@ -254,14 +254,14 @@
                     </div>
                 </div>
 
-                <div id="results-message">
+                <div id="results-message" class="mt-2">
                     {{#if pass}}
                     <h4 class=>Congratulations {{student-name}}! You pass the quiz!</h4>
                     {{else}}
-                    <h4 class=>Sorry {{student-name}},  you failed the quiz!</h4>
+                    <h4 class=>Sorry, {{student-name}},  you failed the quiz!</h4>
                     {{/if}}
                     
-                    <p class="lead">You answered {{correct} out of {{quiz-length}} questions correctly for a score of {{score}}%.</p>
+                    <p class="lead">You answered {{correct}} out of {{quiz-length}} questions correctly for a score of {{score}}%.</p>
                     <p class="muted mt-3">Time elapsed: {{time}}</p>
                 </div>
                 

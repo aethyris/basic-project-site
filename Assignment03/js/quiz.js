@@ -37,7 +37,7 @@ const createQuizView = async (quizId) => {
 
     // Render quiz scoreboard and first question
     document.querySelector('#app-widget').innerHTML = renderView('#quiz-view',model);
-    createQuestionView(model.questions[0]);
+    createQuestionView(model.questions[0], quizId);
 
     // Start timing quiz
     startTime = new Date();
@@ -47,6 +47,7 @@ const createQuizView = async (quizId) => {
 }
 
 const createQuestionView = async (questionId, quizId) => {
+
     if (questionId < 0) {
         endQuizView(quizId);
     } else {
@@ -54,7 +55,6 @@ const createQuestionView = async (questionId, quizId) => {
         const questionData = await fetch(`${source}/questions?id=${questionId}`);
         const questionJSON = await questionData.json();
         const questionModel = questionJSON[0];
-        const quizId = questionModel['quiz-id'];
 
         // Get quiz data
         const quizData = await fetch(`${source}/quizzes?id=${quizId}`);
@@ -101,7 +101,7 @@ const submitAnswer = async (questionId) => {
     const model = dataJSON[0];
     let givenAnswer = '';
     if (model['type'] == "radio") {
-        givenAnswer = parseInt(document.querySelector('input[name=answer]:checked').value)+1;
+        givenAnswer = document.querySelector('input[name=answer]:checked').value;
     } else if (model['type'] == 'text') {
         givenAnswer = document.querySelector('#answer').value.trim().toLowerCase();
     }
@@ -119,12 +119,15 @@ const submitAnswer = async (questionId) => {
         const quizJSON = await quiz.json();
         const questionList = quizJSON[0].questions;
         let nextQuestionIndex = questionList.findIndex(element => element == questionId) + 1
+
+        model['next-question'] = questionList[nextQuestionIndex];
         // For when there is no next question
         if (nextQuestionIndex == questionList.length) {
             clearInterval(elapsedTimeInterval);
-            nextQuestionIndex = -1;
+            model['next-question'] = -1;
         }
 
+        model['quiz-id'] = quizJSON[0].id;
         if (model.answer == givenAnswer) {
             // Correct answer
             correctAnswers++;
@@ -137,10 +140,9 @@ const submitAnswer = async (questionId) => {
                 "success-message": congratsList[Math.floor(Math.random() * congratsList.length)] 
             });
             setTimeout(1000);
-            createQuestionView(questionList[nextQuestionIndex]);
+            createQuestionView(model['next-question'], model['quiz-id']);
         } else {
             // Incorrect answer
-            model['next-question'] = questionList[nextQuestionIndex];
             document.querySelector('#answer-feedback').innerHTML = renderView('#incorrect-answer', model);
         }
     }
@@ -170,14 +172,13 @@ const endQuizView = async (quizId) => {
     const quizJSON = await quizData.json();
     const model = quizJSON[0];
     const quizLength = model.questions.length;
-    const time = elapsedTime(startTime);
     model['student-name'] = studentName;
     model['quiz-length'] = quizLength;
     model['correct'] = correctAnswers
     model['score'] = Math.floor((correctAnswers/quizLength) * 100);
-    model['time'] = time;
+    model['time'] = elaspedTime(startTime);
 
-    if (score > 80) {
+    if (model['score'] > 80) {
         model['pass'] = true;
     }
 

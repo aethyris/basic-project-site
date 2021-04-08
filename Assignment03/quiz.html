@@ -120,16 +120,16 @@
 
         <script id="multiple-choice" type="text/x-handlebars-template">
             <p class="h5 mt-1">{{question}}</p>
-            {{#if img-content}}
-            <img src='{{img-content}}' alt=''/>
+            {{#if img}}
+            <img src='{{img}}' alt=''/>
             {{/if}}
                 
             <form id='answer-form' class='mt-3'>
                 <div class='form-group'>
                     {{#each choices}}
                     <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="answer" id='{{this.id}}' value='{{this.id}}'>
-                        <label class="form-check-label" for='{{this.id}}'>{{this.text}}</label>
+                        <input class="form-check-input" type="radio" name="answer" id='{{@index}}' value='{{@index}}'>
+                        <label class="form-check-label" for='{{@index}}'>{{this}}</label>
                     </div>  
                     {{/each}}
                 </div>
@@ -142,8 +142,8 @@
 
         <script id="solve" type="text/x-handlebars-template">
             <p class="h5 mt-1">{{question}}</p>
-            {{#if img-content}}
-            <img src='{{img-content}}' alt=''/>
+            {{#if img}}
+            <img src='{{img}}' alt=''/>
             {{/if}}
 
             <form id='answer-form' class='mt-3'>
@@ -160,8 +160,8 @@
         </script>
 
         <script id="fill-in" type="text/x-handlebars-template">
-            {{#if img-content}}
-            <img src='{{img-content}}' alt=''/>
+            {{#if img}}
+            <img src='{{img}}' alt=''/>
             {{/if}}
 
             <form id='answer-form' class='mt-3'>
@@ -179,16 +179,16 @@
 
         <script id="image-select" type="text/x-handlebars-template">
             <p class="h5 mt-1">{{question}}</p>
-            {{#if img-content}}
-            <img src='{{img-content}}' alt=''/>
+            {{#if img}}
+            <img src='{{img}}' alt=''/>
             {{/if}}
             
             <form id='answer-form' class='mt-3'>
                 <div class='form-group'>
                     {{#each choices}}
                     <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="answer" id='{{this.id}}' value='{{this.id}}'>
-                        <label class="form-check-label" for='{{this.id}}'>{{this.image}}</label>
+                        <input class="form-check-input" type="radio" name="answer" id='{{@index}}' value='{{@index}}'>
+                        <label class="form-check-label" for='{{@index}}'>{{this}}</label>
                     </div>  
                     {{/each}}
                 </div>
@@ -201,8 +201,8 @@
 
         <script id="correct-error" type="text/x-handlebars-template">
             <p class="h5 mt-1">{{question}}</p>
-            {{#if img-content}}
-            <img src='{{img-content}}' alt=''/>
+            {{#if img}}
+            <img src='{{img}}' alt=''/>
             {{/if}}
 
             <form id='answer-form' class='mt-3'>

@@ -73,7 +73,7 @@ const createQuestionView = async (questionId, quizId) => {
 
         // Render question
         let html = '';
-        switch(questionModel["question-type"]) {
+        switch(questionModel["type"]) {
             case 'multiple-choice':
                 html = renderView('#multiple-choice', questionModel);
                 break;
@@ -96,14 +96,14 @@ const createQuestionView = async (questionId, quizId) => {
 
 const submitAnswer = async (questionId) => {
     // Get the correct answer and the given answer
-    const data = await fetch(`${source}/answers?question-id=${questionId}`)
+    const data = await fetch(`${source}/answers?id=${questionId}`)
     const dataJSON = await data.json();
     const model = dataJSON[0];
     let givenAnswer = '';
-    if (model['answer-type'] == "radio") {
-        givenAnswer = document.querySelector('input[name=answer]:checked').value
-    } else if (model['answer-type'] == 'text') {
-        givenAnswer = document.querySelector('#answer').value.trim();
+    if (model['type'] == "radio") {
+        givenAnswer = parseInt(document.querySelector('input[name=answer]:checked').value)+1;
+    } else if (model['type'] == 'text') {
+        givenAnswer = document.querySelector('#answer').value.trim().toLowerCase();
     }
 
     // Compare the two answers
@@ -121,7 +121,7 @@ const submitAnswer = async (questionId) => {
         let nextQuestionIndex = questionList.findIndex(element => element == questionId) + 1
         // For when there is no next question
         if (nextQuestionIndex == questionList.length) {
-            elapsedTimeInterval.clearInterval()
+            clearInterval(elapsedTimeInterval);
             nextQuestionIndex = -1;
         }
 

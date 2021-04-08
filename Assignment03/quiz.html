@@ -82,81 +82,143 @@
                                 <div class="card-body">
                                     <h5 class="card-title" id="">{{this.name}}</h5>
                                     <p class="card-text">{{this.description}}</p>
-                                    <button class="button-gradient" type="button" onclick="createQuestionView('{{this.questions.[0]}}',)">Start</button>
+                                    <button class="button-gradient" type="button" onclick="createQuizView('{{this.id}}')">Start</button>
                                 </div>
                             </div>
                         </div>
                         {{/each}}
                     </div>
                 </div>
-                
+            </div>
+        </script>
+
+        <script id="quiz-view" type="text/x-handlebars-template">
+            <div class="col-md-10 mx-auto">
+                <div class="d-flex justify-content-between align-items-end">
+                    <h3 id="quiz-name">{{name}}</h3>
+                    <p class="mb-2 text-muted pl-2 border-left" id="elapsed-time">00:00</p>
+                </div>
+
+                <div id="quiz-progress">
+                </div>
+
+                <div id="question-section">
+                </div>
+            </div>
+        </script>
+
+        <script id="quiz-progress-view" type="text/x-handlebars-template">
+            <div class="progress" style="height: .5em;">
+                <div class="progress-bar gradient-row" id="progress-bar" role="progressbar" style="width: {{quiz-progress}}%;" aria-valuenow="{{quiz-progress}}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-1">
+                <p class="text-muted">Question {{current-question}}/{{quiz-length}}</p>
+                <p class="text-muted">Score: {{score}}%</p>
             </div>
         </script>
 
         <script id="multiple-choice" type="text/x-handlebars-template">
-            <div class="col-md-8 mx-auto">
-                <div class="d-flex justify-content-between align-items-end">
-                        <h3>{{quiz-name}}</h3>
-                        <p class="mb-2 text-muted">Question {{question-number}}/{{quiz-length}}</p>
+            <p class="h5 mt-1">{{question}}</p>
+            {{#if img-content}}
+            <img src='{{img-content}}' alt=''/>
+            {{/if}}
+                
+            <form id='answer-form' class='mt-3'>
+                <div class='form-group'>
+                    {{#each choices}}
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="answer" id='{{this.id}}' value='{{this.id}}'>
+                        <label class="form-check-label" for='{{this.id}}'>{{this.text}}</label>
+                    </div>  
+                    {{/each}}
                 </div>
-                <div class="progress" style="height: .5em;">
-                    <div class="progress-bar" role="progressbar" style="width: {{quiz-progress}}%;" aria-valuenow="{{quiz-progress}}" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+                <button class="button-gradient" type="button" onclick="submitAnswer('{{id}}')">Submit</button>
+            </form>
 
-                <p class="h5 mt-2">{{question}}</p>
-                {{#if img-content}}
-                <img src='{{img-content}}' alt=''/>
-                {{/if}}
-
-                <form id='radio-form' class='mt-3'>
-                    <div class='form-group'>
-                        {{#each choices}}
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="answer" id='{{this.id}}' value='{{this.id}}'>
-                            <label class="form-check-label" for='{{this.id}}'>{{this.text}}</label>
-                        </div>  
-                        {{/each}}
-                    </div>
-                    <button class="button-gradient" type="button" onclick="submitAnswer('{{id}}')">Submit</button>
-                </form>
-
-                <div id="question-result">
-                </div>
-
+            <div id="answer-feedback">
             </div>
         </script>
 
         <script id="solve" type="text/x-handlebars-template">
-            <div class="col-md-8 mx-auto">
-                <div class="d-flex justify-content-between align-items-end">
-                    <h3>{{quiz-name}}</h3>
-                    <p class="mb-2 text-muted">Question {{question-number}}/{{quiz-length}}</p>
-                </div>
-                <div class="progress" style="height: .5em;">
-                    <div class="progress-bar gradient-row" role="progressbar" style="width: {{quiz-progress}}%;" aria-valuenow="{{quiz-progress}}" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
+            <p class="h5 mt-1">{{question}}</p>
+            {{#if img-content}}
+            <img src='{{img-content}}' alt=''/>
+            {{/if}}
 
-                <p class="h5 mt-2">{{question}}</p>
-                {{#if img-content}}
-                <img src='{{img-content}}' alt=''/>
-                {{/if}}
-
-                <form id='solve-form' class='form-inline mt-3'>
+            <form id='answer-form' class='mt-3'>
+                <div class="form-group form-inline">
                     <label for="answer">{{before-answer}}</label>
                     <input id="answer" name="answer" class="form-control mx-1">
                     <label for="answer">{{after-answer}}</label>
-                </form>
+                </div> 
                 <button class="button-gradient" type="button" onclick="submitAnswer('{{id}}')">Submit</button>
+            </form>
 
-                <div id="question-result">
-                </div>
-
+            <div id="answer-feedback">
             </div>
+        </script>
 
+        <script id="fill-in" type="text/x-handlebars-template">
+            {{#if img-content}}
+            <img src='{{img-content}}' alt=''/>
+            {{/if}}
+
+            <form id='answer-form' class='mt-3'>
+                <div class="form-group form-inline">
+                    <label for="answer">{{question.[0]}}</label>
+                    <input id="answer" name="answer" class="form-control mx-1">
+                    <label for="answer">{{question.[1]}}</label>
+                </div> 
+                <button class="button-gradient" type="button" onclick="submitAnswer('{{id}}')">Submit</button>
+            </form>
+
+            <div id="answer-feedback" class="mt-3">
+            </div>
+        </script>
+
+        <script id="image-select" type="text/x-handlebars-template">
+            <p class="h5 mt-1">{{question}}</p>
+            {{#if img-content}}
+            <img src='{{img-content}}' alt=''/>
+            {{/if}}
+            
+            <form id='answer-form' class='mt-3'>
+                <div class='form-group'>
+                    {{#each choices}}
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="answer" id='{{this.id}}' value='{{this.id}}'>
+                        <label class="form-check-label" for='{{this.id}}'>{{this.image}}</label>
+                    </div>  
+                    {{/each}}
+                </div>
+                <button class="button-gradient" type="button" onclick="submitAnswer('{{id}}')">Submit</button>
+            </form>
+
+            <div id="answer-feedback">
+            </div>
+        </script>
+
+        <script id="correct-error" type="text/x-handlebars-template">
+            <p class="h5 mt-1">{{question}}</p>
+            {{#if img-content}}
+            <img src='{{img-content}}' alt=''/>
+            {{/if}}
+
+            <form id='answer-form' class='mt-3'>
+                <textarea class="form-control" id="answer" rows="4">{{input}}</textarea>
+                <div class="form-group d-flex justify-content-between align-items-start">
+                    <button class="button-gradient" type="button" onclick="submitAnswer('{{id}}')">Submit</button>
+                    <button class="btn btn-outline-secondary border-0" type="reset"><i class="fas fa-undo-alt"></i></button>
+                </div>
+            </form>
+
+            <div id="answer-feedback">
+            </div>
         </script>
 
         <script id="correct-answer" type="text/x-handlebars-template">
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center mt-2">
                 <div class="col-md-8 card bg-success">
                     <div class="card-body">
                         <h3 class="text-white text-center">{{success-message}}</h5>
@@ -166,7 +228,7 @@
         </script>
 
         <script id="incorrect-answer" type="text/x-handlebars-template">
-            <div class='d-flex justify-content-center'>
+            <div class='d-flex justify-content-center mt-2'>
                 <div class="col-md-8">
                     <div class="card border-danger">
                         <div class="card-header bg-danger">
@@ -175,15 +237,37 @@
                         <div class="card-body">
                             <p>{{explanation}}</p>
                             <div class='row justify-content-center'>
-                                <button class="btn btn-danger" type="button" onclick="createQuestionView('{{next-question}}')">Continue</button>
+                                <button class="btn btn-danger" type="button" onclick="createQuestionView('{{next-question}}')">Got it</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </script>
-        
+
+        <script id="quiz-results" type="text/x-handlebars-template">
+            <div class="col-md-10 mx-auto">
+                <div id="results-header">
+                    <h3 id="quiz-name">{{name}}</h3>
+                    <div class="progress" style="height: .5em;">
+                        <div class="progress-bar gradient-row" id="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+
+                <div id="results-message">
+                    {{#if pass}}
+                    <h4 class=>Congratulations {{student-name}}! You pass the quiz!</h4>
+                    {{else}}
+                    <h4 class=>Sorry {{student-name}},  you failed the quiz!</h4>
+                    {{/if}}
+                    
+                    <p class="lead">You answered {{correct} out of {{quiz-length}} questions correctly for a score of {{score}}%.</p>
+                    <p class="muted mt-3">Time elapsed: {{time}}</p>
+                </div>
+                
+
+            </div>
+        </script>
 
         <!-- jQuery, Popper.js, Bootstrap JS plugins-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

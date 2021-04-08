@@ -20,24 +20,24 @@
             "id": 1,
             "quiz-id": 1,
             "question-type": "multiple-choice",
-            "question": "Multiple choice question",
+            "question": "What is the parent class of all other classes in Java?",
             "img-content": "",
             "choices": [
                 {
                     "id": 1,
-                    "text": "answer1"
+                    "text": "java.lang.Character"
                 },
                 {
                     "id": 2,
-                    "text": "answer2"
+                    "text": "java.lang.Object"
                 },
                 {
                     "id": 3,
-                    "text": "answer3"
+                    "text": "java.lang.System"
                 },
                 {
                     "id": 4,
-                    "text": "answer4"
+                    "text": "java.lang.Package"
                 }
             ]
         },
@@ -45,9 +45,9 @@
             "id": 2,
             "quiz-id": 1,
             "question-type": "solve",
-            "question": "Solve question, or use for finding output",
+            "question": "Given x = 122.25, what is returned by java.lang.Math.round(x)?",
             "img-content": "",
-            "before-answer": "answer = ",
+            "before-answer": "",
             "after-answer": ""
         },
         {
@@ -55,31 +55,31 @@
             "quiz-id": 1,
             "question-type": "fill-in",
             "question": [
-                "Fill in the ", " in this sentence."
+                "The four most important concepts in object-oriented programming are abstraction, polymorphism, ", ", and encapsulation."
             ]
         },
         {
             "id": 4,
             "quiz-id": 1,
             "question-type": "image-select",
-            "question": "which of these images looks right",
+            "question": "Which of these snippets shows an infinite loop?",
             "img-content": "",
             "choices": [
                 {
                     "id": 1,
-                    "image": "answer1"
+                    "image": "../images/quiz/4_1.png"
                 },
                 {
                     "id": 2,
-                    "image": "answer2"
+                    "image": "../images/quiz/4_2.png"
                 },
                 {
                     "id": 3,
-                    "image": "answer3"
+                    "image": "../images/quiz/4_3.png"
                 },
                 {
                     "id": 4,
-                    "image": "answer4"
+                    "image": "../images/quiz/4_4.png"
                 }
             ]
         },
@@ -87,8 +87,221 @@
             "id": 5,
             "quiz-id": 1,
             "question-type": "correct-error",
-            "question": "identify the error",
-            "input": "prefill the textbox"
+            "question": "Correct the error in this ternary expression.",
+            "input": "return x > 10 : 'x > 10' ? 'x < 10';"
+        },
+        {
+            "id": 6,
+            "quiz-id": 1,
+            "question-type": "solve",
+            "question": "What is the output of the following code segment?",
+            "img-content": "../images/quiz/6.png",
+            "before-answer": "",
+            "after-answer": ""
+        },
+        {
+            "id": 7,
+            "quiz-id": 1,
+            "question-type": "multiple-choice",
+            "question": "This access modifier allows a field or method to be accessed only by the class in which it belongs.",
+            "img-content": "",
+            "choices": [
+                {
+                    "id": 1,
+                    "text": "public"
+                },
+                {
+                    "id": 2,
+                    "text": "protected"
+                },
+                {
+                    "id": 3,
+                    "text": "default"
+                },
+                {
+                    "id": 4,
+                    "text": "private"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "quiz-id": 1,
+            "question-type": "multiple-choice",
+            "question": "In Java, a method is a container that holds classes.",
+            "img-content": "",
+            "choices": [
+                {
+                    "id": 1,
+                    "text": "True"
+                },
+                {
+                    "id": 2,
+                    "text": "False"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "quiz-id": 1,
+            "question-type": "correct-error",
+            "question": "Correct this line of code that makes a String:",
+            "img-content": "",
+            "input": "String text = 'text';"
+        },
+        {
+            "id": 10,
+            "quiz-id": 1,
+            "question-type": "fill-in",
+            "img-content": "",
+            "question": [
+                "A ", " refers to the collection of relevant interfaces and classes that are bundled together."
+            ]
+        },
+        {
+            "id": 11,
+            "quiz-id": 1,
+            "question-type": "fill-in",
+            "img-content": "",
+            "question": [
+                "An ", " only possesses methods with no implementation."
+            ]
+        }, 
+        {
+            "id": 12,
+            "quiz-id": 1,
+            "question-type": "solve",
+            "question": "What is the output of the following code snippet?",
+            "img-content": "../images/quiz/12.png",
+            "before-answer": "",
+            "after-answer": ""
+        },
+        {
+            "id": 13,
+            "quiz-id": 1,
+            "question-type": "multiple-choice",
+            "question": "A class cannot contain multiple methods with the same name",
+            "img-content": "",
+            "choices": [
+                {
+                    "id": 1,
+                    "text": "True"
+                },
+                {
+                    "id": 2,
+                    "text": "False"
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "quiz-id": 1,
+            "question-type": "multiple-choice",
+            "question": "What is the output of the following code snippet?",
+            "img-content": "../images/quiz/14.png",
+            "choices": [
+                {
+                    "id": 1,
+                    "text": "[0, 0, 0, 0, 0]"
+                },
+                {
+                    "id": 2,
+                    "text": "0"
+                },
+                {
+                    "id": 3,
+                    "text": "00000"
+                },
+                {
+                    "id": 4,
+                    "text": "the memory address of arr"
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "quiz-id": 1,
+            "question-type": "solve",
+            "question": "What exception occurs if you attempt to call the 11th element of an array with a length of 10?",
+            "img-content": "",
+            "before-answer": "java.lang.",
+            "after-answer": ""
+        },
+        {
+            "id": 16,
+            "quiz-id": 1,
+            "question-type": "fill-in",
+            "question": [
+                "JUnit is a framework that allows you to perform ", "."
+            ]
+        },
+        {
+            "id": 17,
+            "quiz-id": 1,
+            "question-type": "solve",
+            "question": "What is the output of the following code snippet?",
+            "img-content": "../images/quiz/17.png",
+            "before-answer": "",
+            "after-answer": ""
+        },
+        {
+            "id": 18,
+            "quiz-id": 1,
+            "question-type": "multiple-choice",
+            "question": "Which of the following is a keyword in Java?",
+            "img-content": "",
+            "choices": [
+                {
+                    "id": 1,
+                    "text": "repeat"
+                }, 
+                {
+                    "id": 2,
+                    "text": "elif"
+                },
+                {
+                    "id": 3,
+                    "text": "final"
+                },
+                {
+                    "id": 4,
+                    "text": "virtual"
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "quiz-id": 1,
+            "question-type": "fill-in",
+            "img-content": "",
+            "question": [
+                "We can create threads in Java by extending the Thread class or by implementing the ", " interface."
+            ]
+        },
+        {
+            "id": 20,
+            "quiz-id": 1,
+            "question-type": "multiple-choice",
+            "question": "What is serialization?",
+            "img-content": "",
+            "choices": [
+                {
+                    "id": 1,
+                    "text": "Serialization is the conversion of an object into a byte stream."
+                },
+                {
+                    "id": 2,
+                    "text": "Serialization is a method of traversing arrays."
+                },
+                {
+                    "id": 3,
+                    "text": "Serialization describes how each package, class, and method is read one at a time."
+                },
+                {
+                    "id": 4,
+                    "text": "Serialization is a means of turning a byte stream into a Java object."
+                }
+            ]
         }
     ],
     "answers": [
@@ -96,36 +309,141 @@
             "id": 1,
             "question-id": 1,
             "answer-type": "radio",
-            "answer": 1,
-            "explanation": "The reason why the answer is 1 is because it is 1."
+            "answer": 2,
+            "explanation": "The Object class in Java is the superclass from which all other classes inherit from. All objects will implement the methods of the Object class."
         },
         {
             "id": 2,
             "question-id": 2,
             "answer-type": "text",
-            "answer": "answer",
-            "explanation": "The reason why the answer is answer is because it is answer."
+            "answer": "122",
+            "explanation": "The java.lang.Math.round() function takes the floor of the given value, so 122.25 gets rounded down to 122."
         },
         {
             "id": 3,
             "question-id": 3,
             "answer-type": "text",
-            "answer": "blank",
-            "explanation": "The reason why the answer is blank is because it is blank."
+            "answer": "inheritance",
+            "explanation": "The four most important concepts of OOP are abstraction, polymorphism, inheritance, and encapsulation. Inheritance is the way different classes can acquire the properties of another class in order to reuse code."
         },
         {
             "id": 4,
             "question-id": 4,
             "answer-type": "radio",
-            "answer": 1,
-            "explanation": "The reason why the answer is 1 is because it is 1."
+            "answer": 3,
+            "explanation": "The expression x-- ensures that the condition of the do-while loop, x < 4, always remains true."
         },
         {
             "id": 5,
             "question-id": 5,
             "answer-type": "text",
-            "answer": "pre-fill the textbox",
-            "explanation": "The reason why the answer is answer is pre-fill the textbox because it is pre-fill the textbox."
+            "answer": "return x > 10 ? 'x > 10' : 'x < 10';",
+            "explanation": "The ternary operator ? used used to select a single expression. The format of a ternary expression is <boolean expression> ? <expression1> : <expression2>."
+        },
+        {
+            "id": 6,
+            "question-id": 6,
+            "answer-type": "text",
+            "answer": 15,
+            "explanation": "The answer is 15 since x++ is a postfix expression. In this case, x returns the value of 15 before incrementing itself by 1."
+        },
+        {
+            "id": 7,
+            "question-id": 7,
+            "answer-type": "radio",
+            "answer": 4,
+            "explanation": "The private access classifier only allows methods to be accessed from the class in which it belongs."
+        },
+        {
+            "id": 8,
+            "question-id": 8,
+            "answer-type": "radio",
+            "answer": 2,
+            "explanation": "A method is a group of statements that perform an operation."
+        },
+        {
+            "id": 9,
+            "question-id": 9,
+            "answer-type": "text",
+            "answer": "String text = \"text\";",
+            "explanation": "Strings in Java are written using quotations and not apostrophes."
+        },
+        {
+            "id": 10,
+            "question-id": 10,
+            "answer-type": "text",
+            "answer": "package",
+            "explanation": "A package bundles together related interfaces and classes so that the code can be modularized and reused."
+        },
+        {
+            "id": 11,
+            "question-id": 11,
+            "answer-type": "text",
+            "answer": "interface",
+            "explanation": "An interface contains methods with no implementation. This is so that classes can implement the methods while still retaining the same method signature."
+        },
+        {
+            "id": 12,
+            "question-id": 12,
+            "answer-type": "text",
+            "answer": "120",
+            "explanation": "The mystery function is a recursive function that finds the factorial of the given number. 5! is equal to 120."
+        },
+        {
+            "id": 13,
+            "question-id": 13,
+            "answer-type": "radio",
+            "answer": 2,
+            "explanation": "Java allows multiple methods in the same class to share the same name. This is called overloading and allows methods to share names as long as the number or types of parameters differ."
+        },
+        {
+            "id": 14,
+            "question-id": 14,
+            "answer-type": "radio",
+            "answer": 4,
+            "explanation": "The arr value is pointing to the location of the array rather than the contents of the array. Therefore, printing the value of arr will print out the memory address of the object."
+        },
+        {
+            "id": 15,
+            "question-id": 15,
+            "answer-type": "text",
+            "answer": "arrayindexoutofboundsexception",
+            "explanation": "The ArrayIndexOutOfBoundsExceptions is thrown when an array has been accessed with an illegal index - the index is either negative or greater than or equal to the size of the array."
+        },
+        {
+            "id": 16,
+            "question-id": 16,
+            "answer-type": "text",
+            "answer": "unittests",
+            "explanation": "JUnit is a unit testing framework that allows you to write repeatable tests for your code."
+        },
+        {
+            "id": 17,
+            "question-id": 17,
+            "answer-type": "text",
+            "answer": "17",
+            "explanation": "Each time the word sum is called on the right hand side of line 2 refers to the original value of sum, 5. When the double is added, the integers are temporarily promoted to a double. However, the sum variable is an integer, so the value gets rounded down to the nearest integer."
+        },
+        {
+            "id": 18,
+            "question-id": 18,
+            "answer-type": "radio",
+            "answer": 3,
+            "explanation": "The final keyword in Java can have multiple uses. It is used to signify that a class cannot be extended, a method cannot be overridden, and that a field is a constant."
+        },
+        {
+            "id": 19,
+            "question-id": 19,
+            "answer-type": "text",
+            "answer": "runnable",
+            "explanation": "A Runnable is an interface that will be implemented by objects that need to be executed by a thread. The Thread class itself uses the Runnable interface."
+        },
+        {
+            "id": 20,
+            "question-id": 20,
+            "answer-type": "radio",
+            "answer": 1,
+            "explanation": "Serialization is when the state of an object is converted into a byte stream. The byte stream can be transferred through a network and deserialized back into an object."
         }
     ]
 }

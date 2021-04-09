@@ -14,19 +14,23 @@ const renderView = (view, model) => {
     return template(model);
 }
 
-const selectQuizView = async () => {
+const submitName = () => {
     studentName = document.querySelector('#student-name').value;
     if (studentName == '') {
         alert('Please enter a valid name.')
     } else {
-        const data = await fetch(`${source}/quizzes`);
-        const dataJSON = await data.json();
-        const model = {
-            'name': studentName,
-            'quizzes': dataJSON,
-        };
-        document.querySelector('#app-widget').innerHTML = renderView('#select-quiz', model);
+        selectQuizView();
     }
+}
+
+const selectQuizView = async () => {
+    const data = await fetch(`${source}/quizzes`);
+    const dataJSON = await data.json();
+    const model = {
+        'name': studentName,
+        'quizzes': dataJSON,
+    };
+    document.querySelector('#app-widget').innerHTML = renderView('#select-quiz', model);
 }
 
 const createQuizView = async (quizId) => {
@@ -105,7 +109,6 @@ const submitAnswer = async (questionId) => {
     } else if (model['type'] == 'text') {
         givenAnswer = document.querySelector('#answer').value.trim().toLowerCase();
     }
-
     // Compare the two answers
     if (!givenAnswer) {
         alert('Please answer the question.');
@@ -128,7 +131,7 @@ const submitAnswer = async (questionId) => {
         }
 
         model['quiz-id'] = quizJSON[0].id;
-        if (model.answer == givenAnswer) {
+        if (model.ans == givenAnswer) {
             // Correct answer
             correctAnswers++;
             const congratsList = [
@@ -182,6 +185,6 @@ const endQuizView = async (quizId) => {
         model['pass'] = true;
     }
 
-    document.querySelector('#app-widget').innerHTML = renderView('#quiz-results', model);
     correctAnswers = 0;
+    document.querySelector('#app-widget').innerHTML = renderView('#quiz-results', model);
 }

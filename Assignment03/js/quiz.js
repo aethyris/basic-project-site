@@ -1,6 +1,7 @@
 const source = 'https://my-json-server.typicode.com/aethyris/cus1172-project1/';
 let studentName = '';
 let correctAnswers = 0;
+let quizSelector = '';
 let startTime;
 let elapsedTimeInterval;
 
@@ -38,6 +39,7 @@ const createQuizView = async (quizId) => {
     const quizData = await fetch(`${source}/quizzes?id=${quizId}`);
     const quizJSON = await quizData.json();
     const model = quizJSON[0];
+    quizSelector = quizId
 
     // Render quiz scoreboard and first question
     document.querySelector('#app-widget').innerHTML = renderView('#quiz-view',model);
@@ -50,18 +52,18 @@ const createQuizView = async (quizId) => {
     }, 1000);
 }
 
-const createQuestionView = async (questionId, quizId) => {
+const createQuestionView = async (questionId) => {
 
     if (questionId < 0) {
-        endQuizView(quizId);
+        endQuizView();
     } else {
         // Get question or time for last question
-        const questionData = await fetch(`${source}/questions?id=${questionId}`);
+        const questionData = await fetch(`${source}/questions${quizSelector}?id=${questionId}`);
         const questionJSON = await questionData.json();
         const questionModel = questionJSON[0];
 
         // Get quiz data
-        const quizData = await fetch(`${source}/quizzes?id=${quizId}`);
+        const quizData = await fetch(`${source}/quizzes?id=${quizSelector}`);
         const quizJSON = await quizData.json();
         const currentIndex = quizJSON[0].questions.findIndex(element => element == questionId);
         const quizLength = quizJSON[0].questions.length;
@@ -73,7 +75,7 @@ const createQuestionView = async (questionId, quizId) => {
         };
 
         // Update quiz progress
-        document.querySelector('#quiz-progress').innerHTML = renderView('#quiz-progress-view',quizProgressModel);
+        document.querySelector('#quiz-progress').innerHTML = renderView('#quiz-progress-view', quizProgressModel);
 
         // Render question
         let html = '';
@@ -100,7 +102,7 @@ const createQuestionView = async (questionId, quizId) => {
 
 const submitAnswer = async (questionId) => {
     // Get the correct answer and the given answer
-    const data = await fetch(`${source}/answers?id=${questionId}`)
+    const data = await fetch(`${source}/answers${quizSelector}?id=${questionId}`)
     const dataJSON = await data.json();
     const model = dataJSON[0];
     let givenAnswer = '';
@@ -116,9 +118,7 @@ const submitAnswer = async (questionId) => {
         document.querySelector('#answer-form').remove();
 
         // Retrieve the next question
-        const question = await fetch(`${source}/questions?id=${questionId}`)
-        const questionJSON = await question.json();
-        const quiz = await fetch(`${source}/quizzes?id=${questionJSON[0]['qid']}`);
+        const quiz = await fetch(`${source}/quizzes?id=${quizSelector}`);
         const quizJSON = await quiz.json();
         const questionList = quizJSON[0].questions;
         let nextQuestionIndex = questionList.findIndex(element => element == questionId) + 1
@@ -130,7 +130,6 @@ const submitAnswer = async (questionId) => {
             model['next-question'] = -1;
         }
 
-        model['qid'] = quizJSON[0].id;
         if (model.ans == givenAnswer) {
             // Correct answer
             correctAnswers++;
@@ -143,7 +142,7 @@ const submitAnswer = async (questionId) => {
                 "success-message": congratsList[Math.floor(Math.random() * congratsList.length)] 
             });
             setTimeout(1000);
-            createQuestionView(model['next-question'], model['qid']);
+            createQuestionView(model['next-question']);
         } else {
             // Incorrect answer
             document.querySelector('#answer-feedback').innerHTML = renderView('#incorrect-answer', model);
@@ -170,8 +169,8 @@ const elaspedTime = (start) => {
 
 }
 
-const endQuizView = async (quizId) => {
-    const quizData = await fetch(`${source}/quizzes?id=${quizId}`);
+const endQuizView = async () => {
+    const quizData = await fetch(`${source}/quizzes?id=${quizSelector}`);
     const quizJSON = await quizData.json();
     const model = quizJSON[0];
     const quizLength = model.questions.length;
@@ -186,5 +185,6 @@ const endQuizView = async (quizId) => {
     }
 
     correctAnswers = 0;
+    quizSelector = '';
     document.querySelector('#app-widget').innerHTML = renderView('#quiz-results', model);
 }

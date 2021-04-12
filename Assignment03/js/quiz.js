@@ -77,7 +77,7 @@ const createQuestionView = async (questionId, quizId) => {
 
         // Render question
         let html = '';
-        switch(questionModel["type"]) {
+        switch(questionModel["t"]) {
             case 'mc':
                 html = renderView('#multiple-choice', questionModel);
                 break;
@@ -104,9 +104,9 @@ const submitAnswer = async (questionId) => {
     const dataJSON = await data.json();
     const model = dataJSON[0];
     let givenAnswer = '';
-    if (model['type'] == "radio") {
+    if (model['t'] == "radio") {
         givenAnswer = document.querySelector('input[name=answer]:checked').value;
-    } else if (model['type'] == 'text') {
+    } else if (model['t'] == 'text') {
         givenAnswer = document.querySelector('#answer').value.trim().toLowerCase();
     }
     // Compare the two answers

@@ -78,10 +78,10 @@
                         {{#each quizzes}}
                         <div class="col-auto mb-3">
                             <div class="card h-100" style="width: 18rem;">
-                                <img src="{{this.image}}" class="card-img-top" style="border: none;" alt="{{this.name}}">
+                                <img src="../images/quiz/{{this.image}}" class="card-img-top" style="border: none;" alt="{{this.name}}">
                                 <div class="card-body">
                                     <h5 class="card-title" id="">{{this.name}}</h5>
-                                    <p class="card-text">{{this.description}}</p>
+                                    <p class="card-text">{{this.desc}}</p>
                                     <button class="button-gradient" type="button" onclick="createQuizView('{{this.id}}')">Start</button>
                                 </div>
                             </div>
@@ -119,14 +119,14 @@
         </script>
 
         <script id="multiple-choice" type="text/x-handlebars-template">
-            <p class="h5 mt-1">{{question}}</p>
+            <p class="h5 mt-1">{{q}}</p>
             {{#if img}}
-            <img src='{{img}}' alt=''/>
+            <img src='../images/quiz/{{img}}' alt=''/>
             {{/if}}
                 
             <form id='answer-form' class='mt-3'>
                 <div class='form-group'>
-                    {{#each choices}}
+                    {{#each ans}}
                     <div class="form-check mb-2">
                         <input class="form-check-input" type="radio" name="answer" id='{{@index}}' value='{{@index}}'>
                         <label class="form-check-label" for='{{@index}}'>{{this}}</label>
@@ -141,7 +141,7 @@
         </script>
 
         <script id="solve" type="text/x-handlebars-template">
-            <p class="h5 mt-1">{{question}}</p>
+            <p class="h5 mt-1">{{q}}</p>
             {{#if img}}
             <img src='{{img}}' alt=''/>
             {{/if}}
@@ -166,9 +166,9 @@
 
             <form id='answer-form' class='mt-3'>
                 <div class="form-group form-inline">
-                    <label for="answer">{{question.[0]}}</label>
+                    <label for="answer">{{q.[0]}}</label>
                     <input id="answer" name="answer" class="form-control mx-1">
-                    <label for="answer">{{question.[1]}}</label>
+                    <label for="answer">{{q.[1]}}</label>
                 </div> 
                 <button class="button-gradient" type="button" onclick="submitAnswer('{{id}}')">Submit</button>
             </form>
@@ -178,7 +178,7 @@
         </script>
 
         <script id="image-select" type="text/x-handlebars-template">
-            <p class="h5 mt-1">{{question}}</p>
+            <p class="h5 mt-1">{{q}}</p>
             {{#if img}}
             <img src='{{img}}' alt=''/>
             {{/if}}
@@ -186,7 +186,7 @@
             <form id="answer-form" class='mt-3'>
                 <div class='form-group'>
                     <div class="row">
-                        {{#each choices}}
+                        {{#each ans}}
                         <div class="col-auto mb-4">
                             <div class="form-check mb-2" style="width: 20rem;">
                                 <input class="" type="radio" name="answer" id='{{@index}}' value='{{@index}}'>
@@ -206,7 +206,7 @@
         </script>
 
         <script id="correct-error" type="text/x-handlebars-template">
-            <p class="h5 mt-1">{{question}}</p>
+            <p class="h5 mt-1">Correct the following expression:</p>
             {{#if img}}
             <img src='{{img}}' alt=''/>
             {{/if}}
@@ -243,7 +243,7 @@
                         <div class="card-body">
                             <p>{{e}}</p>
                             <div class='row justify-content-center'>
-                                <button class="btn btn-danger" type="button" onclick="createQuestionView('{{next-question}}', '{{quiz-id}}')">Got it</button>
+                                <button class="btn btn-danger" type="button" onclick="createQuestionView('{{next-question}}', '{{qid}}')">Got it</button>
                             </div>
                         </div>
                     </div>

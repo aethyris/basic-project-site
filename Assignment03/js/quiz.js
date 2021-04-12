@@ -78,19 +78,19 @@ const createQuestionView = async (questionId, quizId) => {
         // Render question
         let html = '';
         switch(questionModel["type"]) {
-            case 'multiple-choice':
+            case 'mc':
                 html = renderView('#multiple-choice', questionModel);
                 break;
             case 'solve':
                 html = renderView('#solve', questionModel);
                 break;
-            case 'fill-in':
+            case 'fillin':
                 html = renderView('#fill-in', questionModel);
                 break;
-            case 'image-select':
+            case 'image':
                 html = renderView('#image-select', questionModel);
                 break;
-            case 'correct-error':
+            case 'correct':
                 html = renderView('#correct-error', questionModel);
                 break;
         }
@@ -118,7 +118,7 @@ const submitAnswer = async (questionId) => {
         // Retrieve the next question
         const question = await fetch(`${source}/questions?id=${questionId}`)
         const questionJSON = await question.json();
-        const quiz = await fetch(`${source}/quizzes?id=${questionJSON[0]['quiz-id']}`);
+        const quiz = await fetch(`${source}/quizzes?id=${questionJSON[0]['qid']}`);
         const quizJSON = await quiz.json();
         const questionList = quizJSON[0].questions;
         let nextQuestionIndex = questionList.findIndex(element => element == questionId) + 1
@@ -130,7 +130,7 @@ const submitAnswer = async (questionId) => {
             model['next-question'] = -1;
         }
 
-        model['quiz-id'] = quizJSON[0].id;
+        model['qid'] = quizJSON[0].id;
         if (model.ans == givenAnswer) {
             // Correct answer
             correctAnswers++;
@@ -143,7 +143,7 @@ const submitAnswer = async (questionId) => {
                 "success-message": congratsList[Math.floor(Math.random() * congratsList.length)] 
             });
             setTimeout(1000);
-            createQuestionView(model['next-question'], model['quiz-id']);
+            createQuestionView(model['next-question'], model['qid']);
         } else {
             // Incorrect answer
             document.querySelector('#answer-feedback').innerHTML = renderView('#incorrect-answer', model);

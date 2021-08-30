@@ -16,6 +16,6 @@ Quiz data is retrieved from a fake REST server using [My JSON Server](https://my
 
 ## Course Search App
 
-Main repo: (https://github.com/aethyris/course-search)[https://github.com/aethyris/course-search].
+Main repo: [https://github.com/aethyris/course-search](https://github.com/aethyris/course-search).
 
-Utilizes Handlebars and a RESTful API deployed on Heroku to implement a system for searching database for courses.
+Utilizes Handlebars and a RESTful API deployed on Heroku to implement a SPA for searching database for courses.
